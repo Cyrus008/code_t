@@ -21,8 +21,7 @@ int* A_rot_fun(int *array,int len)
       for(int j=0;j<len;j++)
       array[j]=array[j+1];
     }
-         
-                 array[4] = temp[0];  //This is temporary fixed
+                 array[4] = temp[0]; 
                  array[5] = temp[1];
   return array;
 }
