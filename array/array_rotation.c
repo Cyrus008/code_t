@@ -34,16 +34,13 @@ int* Array_Roation(int *array,int len,int shift_element)
       Temp_buffering(array,shift_element,temp);  
       Array_swapping(array,len,shift_element); 
       for(int i=0;i<shift_element;i++)
-         {
-            for(int j=shift_element-i;j>0;j--)
-                      array[len-j] = temp[i];        
-         }   
+                      array[len-shift_element+i] = temp[i];        
        return array;
 }
 
 int main()
 {
-   int X[] ={1,4,6,7,9,8,5},d=6;
+   int X[] ={1,4,6,7,9,8,5},d=2;
    int len = sizeof(X)/sizeof(X[0]);
    Array_Roation(X,len,d); 
       for(int x=0;x<len;x++) 
