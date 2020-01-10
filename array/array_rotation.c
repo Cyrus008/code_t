@@ -1,6 +1,9 @@
 /* About Code :
  *              This code is written for ratating desired element from left to write This is very short and easy
  * Author     : Pramod Kumar Maurya
+ * Complexity :  
+ *              Time Complexity :O(n)
+ *              Space Complexity:O(1)
  * Date       : 23/11/2019            
  **/
 
