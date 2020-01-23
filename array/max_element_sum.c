@@ -1,47 +1,31 @@
 /**
  * @file array_ds.c
- * @author Pramod Maurya (pramod.nexgen@g)
- * @brief :WAP.Find maximum value of Sum( i*arr[i]) with only rotations on given array allowed
- *         This code contain Time complexity O(n^2)
+ * @author Pramod Maurya (pramod.nexgen@gmail.com)
+ * @brief :Find maximum value of Sum( i*arr[i]) with only rotations on given array allowed
+ *         This code contain Time complexity O(n) and space complexity O(1)
  * @date  2020-01-23 
  * 
  */
 
 #include <stdio.h>
 #include<stdlib.h>
-
-int * array_rotation(int *A,int N)
-{
-  int i,j,B=A[0];
-       for(j=0;j<N-1;j++)
-              A[j] = A[j+1];
- 		A[N-1]=B;
-  		return A;
-}
-int findmax(int *B,int N,int X)
-{
-      for(int i=1;i<N;i++)
-	     {
-	         if(X < B[i])
-			       X=B[i];
-	} 
-   return X;
-}
 int main() 
 { 
-	int A[] = {1, 20, 2, 10},i,j;  
+	int A[] = {10, 1, 2, 3, 4, 5, 6, 7, 8, 9};  
 	int alen = sizeof(A)/sizeof(A[0]);
-	int temp[alen],sum;
-	for(j=0;j<alen;j++)
-	{
-		sum=0;
-		for(i=0;i<alen;i++)
-	         	sum=sum+i*A[i]; 
-	    temp[j]=sum; 
-	    array_rotation(A,alen);
-	}
-	int MAX=temp[0];
-	printf("Required Result:%d\n",findmax(temp,alen,MAX));
-	return EXIT_SUCCESS; 
+	int sum=0,CurrV=0;
+	for(int i=0;i<alen;i++)
+	 {
+               sum=sum+A[i];
+			   CurrV=CurrV+i*A[i]; 
+	 }
+	int maxVal = CurrV;
+    for(int j=1;j<alen;j++)
+	    {
+	        CurrV=CurrV+sum-alen*A[alen-j];
+			(maxVal<CurrV) ? maxVal=CurrV:0 ;
+		}
+	printf("%d\n",maxVal);
+    return EXIT_SUCCESS; 
 } 
 
