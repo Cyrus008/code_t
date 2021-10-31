@@ -15,34 +15,31 @@
  *            When swapping completed then return the swapped element in calling funtion. 
  * */
 
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
+int * Bubble_sort(int *A, int size);
+int main(){
 
-int *swapped_c(int *A,int j)
- {
- 	    A[j]^=A[j+1];
-     	    A[j+1]^=A[j];
-            A[j]^=A[j+1];
-    	return A ;
- }
-int* bubble_sort(int *A,int len)
- {
-   	for(int i=0;i<len-1;i++)
-    	{
-      	    for(int j=0;j<len-i-1;j++)
-         	if(A[j]>A[j+1])
-              	  swapped_c(A,j) ; 
-       }
+        int A[] = {40,20,50,60,30,10};
+        int len = sizeof(A)/sizeof(A[0]);
+        Bubble_sort(A,len);
+        for (int i=0;i<len;i++)
+                printf("%d ",A[i]);
+        printf("\n");
+        return EXIT_SUCCESS;
+}
+
+int * Bubble_sort(int *A, int len)
+{
+        for(int i=0 ;i<len-1;i++)
+        {
+                for(int j=0;j<len-1-i;j++)
+                if(A[j] > A[j+1])
+                {
+                  A[j] ^= A[j+1];  
+                  A[j+1] ^= A[j];
+                  A[j] ^= A[j+1];   
+                }
+        }
         return A;
- }  
-int main()
-   {
- 	int  A[] = {40,20,50,60,30,10};
- 	int len = sizeof(A)/sizeof(A[0]);
- 	bubble_sort(A,len);
- 		for(int i=0;i<len;i++)
-       		  printf("%d ",A[i]);
-   	printf("\n");
- 	return EXIT_SUCCESS; 
- } 
-
+}
