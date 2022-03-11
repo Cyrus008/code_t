@@ -1,0 +1,24 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct student
+{
+   char *name;
+   int mark;
+   int rollno;
+
+}; struct  student data  ;
+
+
+int main()
+{
+
+   data.name = "Hello World";
+   data.mark=89;
+   data.rollno=1080;
+   printf("%s %d %0.2f\n",data.name,data.mark,data.rollno);
+   return EXIT_SUCCESS;
+
+
+
+}
