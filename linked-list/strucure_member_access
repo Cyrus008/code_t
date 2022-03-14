@@ -1,0 +1,49 @@
+How we can access structure members:
+===================================
+
+1. using the dot/period/membership(.) Operator
+2. Using the arraow (->) Operator
+
+
+1. using the dot/period/membership(.) Operator :
+
+
+***********************************************************************
+#include<stdio.h>
+#include<stdlib.h>
+
+struct student
+{
+   char name[20];
+   int mark;
+   int rollno;
+
+}; struct student p={"Pramod Maurya",89.34,1028};
+
+int main()
+{
+
+   printf("%s %0.2f %d",p.name,p.mark,p.rollno);
+   return EXIT_SUCCESS;
+}
+
+2.  Using the arraow (->) Operator :
+******************************************************
+#include<stdio.h>
+#include<stdlib.h>
+
+struct student
+{
+   char name[20];
+   int mark;
+   int rollno;
+
+}; struct student *p1={"Pramod Maurya",89.34,1028};
+   struct student p=&p1;
+
+int main()
+{
+
+   printf("%s %0.2f %d",p.name,p.mark,p.rollno);
+   return EXIT_SUCCESS;
+}
